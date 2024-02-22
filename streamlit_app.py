@@ -16,3 +16,4 @@ fig = px.pie(data, names='index', values='Item', title='Shares of crops')
 
 # Display the pie chart using Streamlit
 st.plotly_chart(fig)
+
