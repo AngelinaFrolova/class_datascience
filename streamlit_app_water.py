@@ -65,7 +65,7 @@ if prediction[0] == 1:
     st.write('Prediction: This water sample is unsafe.')
 else:
     st.write('Prediction: This water sample is safe.')
-if prediction[0] == 1:
+if prediction[0] == 0:
     st.write('Prediction: This water sample is unsafe.')
 else:
     st.write('Prediction: This water sample is safe.')
