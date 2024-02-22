@@ -3,8 +3,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
+import numpy as np
 
-# Load your water quality data
+# Load the water quality data
 url_water = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Machine-Learning/main/data/waterQuality1.csv'
 df_water = pd.read_csv(url_water)
 
@@ -21,21 +22,10 @@ scaler = StandardScaler()
 # Fit the scaler
 scaler.fit(Xw_train)
 
-# Transform the train and the test set
-Xw_train = scaler.transform(Xw_train)
-Xw_test = scaler.transform(Xw_test)
-
-# Set up our model
-modelw = LogisticRegression(penalty='l2', solver='lbfgs', max_iter=1000)
-
-# Fit our model
-modelw.fit(Xw_train, yw_train)
-
 # Streamlit app
 st.title('Water Safety Prediction')
 
-# Input form for the user to enter water quality features
-# Add sliders or input fields for each feature in your dataset
+# Input form for user to enter chemical elements and impurities
 ph = st.slider('pH Value', min_value=0.0, max_value=14.0, step=0.1, value=7.0)
 hardness = st.slider('Hardness', min_value=0, max_value=400, step=1, value=200)
 # Add more sliders or input fields for other features
@@ -55,6 +45,7 @@ prediction = modelw.predict(user_input_scaled)
 
 # Display prediction result
 if prediction[0] == 1:
-    st.write('Prediction: This water sample is safe.')
-else:
     st.write('Prediction: This water sample is unsafe.')
+else:
+    st.write('Prediction: This water sample is safe.')
+
