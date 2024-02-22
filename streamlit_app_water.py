@@ -12,6 +12,12 @@ df_water = pd.read_csv(url_water)
 Xw = df_water.drop('is_safe', axis=1)
 yw = df_water['is_safe']
 
+# Calculate the range for each column
+column_ranges = {column: df_water[column].max() - df_water[column].min() for column in Xw.columns}
+
+# Adjust the range for sliders to be 150% bigger than the dataset range
+slider_ranges = {column: (df_water[column].min() - 0.5 * column_ranges[column], df_water[column].max() + 0.5 * column_ranges[column]) for column in Xw.columns}
+
 # Split data set into a train and a test data sets
 Xw_train, Xw_test, yw_train, yw_test = train_test_split(Xw, yw, test_size=0.2, random_state=39, shuffle=True)
 
@@ -34,7 +40,7 @@ st.title('Water Safety Prediction')
 user_input = {}
 for column in Xw.columns:
     if column != 'is_safe':
-        user_input[column] = st.slider(f'{column} Value', min_value=df_water[column].min(), max_value=df_water[column].max(), step=0.01, value=df_water[column].mean())
+        user_input[column] = st.slider(f'{column} Value', min_value=slider_ranges[column][0], max_value=slider_ranges[column][1], step=0.01, value=df_water[column].mean())
 
 # Create a user input DataFrame
 user_input_df = pd.DataFrame(user_input, index=[0])
@@ -50,4 +56,3 @@ if prediction[0] == 1:
     st.write('Prediction: This water sample is unsafe.')
 else:
     st.write('Prediction: This water sample is safe.')
-
