@@ -36,6 +36,9 @@ modelw.fit(Xw_train, yw_train)
 # Streamlit app
 st.title('Water Safety Prediction')
 
+# Streamlit app
+st.title('Water Safety Prediction')
+
 # Input form for user to enter chemical elements and impurities
 user_input = {}
 for column in Xw.columns:
