@@ -21,8 +21,10 @@ scaler = StandardScaler()
 # Fit the scaler
 scaler.fit(Xw_train)
 
-# Train the logistic regression model
+# 1. Set up our model
 modelw = LogisticRegression(penalty='l2', solver='lbfgs', max_iter=1000)
+
+# 2. Fit our model
 modelw.fit(Xw_train, yw_train)
 
 # Streamlit app
@@ -48,3 +50,4 @@ if prediction[0] == 1:
     st.write('Prediction: This water sample is unsafe.')
 else:
     st.write('Prediction: This water sample is safe.')
+
