@@ -3,7 +3,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
-import numpy as np
 
 # Load the water quality data
 url_water = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Machine-Learning/main/data/waterQuality1.csv'
@@ -26,19 +25,16 @@ scaler.fit(Xw_train)
 st.title('Water Safety Prediction')
 
 # Input form for user to enter chemical elements and impurities
-ph = st.slider('pH Value', min_value=0.0, max_value=14.0, step=0.1, value=7.0)
-hardness = st.slider('Hardness', min_value=0, max_value=400, step=1, value=200)
-# Add more sliders or input fields for other features
+user_input = {}
+for column in Xw.columns:
+    if column != 'is_safe':
+        user_input[column] = st.slider(f'{column} Value', min_value=df_water[column].min(), max_value=df_water[column].max(), step=0.1, value=df_water[column].mean())
 
 # Create a user input DataFrame
-user_input = pd.DataFrame({
-    'ph': [ph],
-    'hardness': [hardness],
-    # Add more columns for other features
-})
+user_input_df = pd.DataFrame(user_input, index=[0])
 
 # Scale the user input using the same scaler
-user_input_scaled = scaler.transform(user_input)
+user_input_scaled = scaler.transform(user_input_df)
 
 # Make prediction
 prediction = modelw.predict(user_input_scaled)
@@ -48,4 +44,3 @@ if prediction[0] == 1:
     st.write('Prediction: This water sample is unsafe.')
 else:
     st.write('Prediction: This water sample is safe.')
-
