@@ -48,8 +48,11 @@ user_input_df = pd.DataFrame(user_input, index=[0])
 # Scale the user input using the same scaler
 user_input_scaled = scaler.transform(user_input_df)
 
+# Convert the scaled user input to a DataFrame
+user_input_scaled_df = pd.DataFrame(user_input_scaled, columns=user_input_df.columns)
+
 # Make prediction
-prediction = modelw.predict(user_input_scaled)
+prediction = modelw.predict(user_input_scaled_df)
 
 # Display prediction result
 if prediction[0] == 0:
