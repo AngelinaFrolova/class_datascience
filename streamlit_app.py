@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
 # Assuming df_yield is your DataFrame
 url = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Machine-Learning/main/data/yield_df.csv'
@@ -10,6 +9,9 @@ df_yield = pd.read_csv(url)
 st.write("""
 # Shares of Crops
 """)
+
+# Display the raw DataFrame for debugging
+st.write(df_yield)
 
 # Check if df_yield is not empty
 if not df_yield.empty:
