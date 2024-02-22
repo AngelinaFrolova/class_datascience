@@ -33,28 +33,38 @@ modelw = LogisticRegression(penalty='l2', solver='lbfgs', max_iter=1000)
 # 2. Fit our model
 modelw.fit(Xw_train, yw_train)
 
-# Streamlit app
-st.title('Water Safety Prediction')
-
-# Streamlit app
-st.title('Water Safety Prediction')
-
 # Input form for user to enter chemical elements and impurities
 user_input = {}
 for column in Xw.columns:
     if column != 'is_safe':
         user_input[column] = st.slider(f'{column} Value', min_value=slider_ranges[column][0], max_value=slider_ranges[column][1], step=0.01, value=df_water[column].mean())
 
+# Print user input for debugging
+st.write("User Input:", user_input)
+
 # Create a user input DataFrame
 user_input_df = pd.DataFrame(user_input, index=[0])
+
+# Print user input DataFrame for debugging
+st.write("User Input DataFrame:", user_input_df)
 
 # Scale the user input using the same scaler
 user_input_scaled = scaler.transform(user_input_df)
 
+# Print scaled user input for debugging
+st.write("Scaled User Input:", user_input_scaled)
+
 # Make prediction
 prediction = modelw.predict(user_input_scaled)
 
+# Print prediction for debugging
+st.write("Prediction:", prediction)
+
 # Display prediction result
+if prediction[0] == 1:
+    st.write('Prediction: This water sample is unsafe.')
+else:
+    st.write('Prediction: This water sample is safe.')
 if prediction[0] == 1:
     st.write('Prediction: This water sample is unsafe.')
 else:
