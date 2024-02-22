@@ -2,9 +2,7 @@ import yfinance as yf
 import streamlit as st
 import pandas as pd
 
-st.write("""
-#STOCK PRICE: GOOGLE
-""")
+st.title('Financial Analysis: Google')
 
 tickerSymbol = 'GOOGL'
 tickerData = yf.Ticker(tickerSymbol)
