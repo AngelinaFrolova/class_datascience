@@ -12,7 +12,7 @@ data = df_yield['Item'].value_counts().reset_index()
 st.title('Shares of crops')
 
 # Create a pie chart using Plotly Express
-fig = px.pie(data, names='index', values='Item', title='Shares of crops')
+fig = px.pie(data, names=data.index, values='Item', title='Shares of crops')
 
 # Display the pie chart using Streamlit
 st.plotly_chart(fig)
