@@ -1,15 +1,27 @@
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
 
+# Assuming df_yield is your DataFrame
+data = df_yield['Item'].value_counts()
+
+# Create a Streamlit app
 st.write("""
-# CROPS YIELD DATA VISUALIZATION
-
-based on rainfall, average temperature, and pesticides used
+# Shares of Crops
 """)
 
-url = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Machine-Learning/main/data/yield_df.csv'
-df_yield = pd.read_csv(url)
+# Create a matplotlib figure
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.set_title('Shares of crops')
 
-# Assuming 'Year' and 'hg/ha_yield' are column names in your DataFrame
-st.area_chart(data=df_yield, x='Year', y='hg/ha_yield', use_container_width=True)
+# Use Pastel1 colormap
+cmap = plt.get_cmap('Pastel1')
+colors = cmap(range(len(data)))
+
+# Plot the pie chart
+ax.pie(data.values, labels=data.index, colors=colors, autopct='%1.1f%%')
+
+# Display the chart using Streamlit's st.pyplot()
+st.pyplot(fig)
+
 
