@@ -8,11 +8,11 @@ data = df_yield['Item'].value_counts()
 # Streamlit app
 st.title('Shares of crops')
 
-# Use Pastel1 colormap for better visualization
-colors = st.color_palette("Pastel1", len(data))
+# Define a Pastel1 colormap for better visualization
+pastel1_colors = ['#fbb4ae', '#b3cde3', '#ccebc5', '#decbe4', '#fed9a6', '#ffffcc', '#e5d8bd', '#fddaec']
 
 # Plotting the pie chart
 fig, ax = plt.subplots(figsize=(8, 8))
 
 # Display the pie chart using Streamlit
-st.pie(data, labels=data.index, colors=colors, autopct='%1.1f%%')
+st.pyplot(fig)
