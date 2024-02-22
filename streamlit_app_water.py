@@ -21,6 +21,10 @@ scaler = StandardScaler()
 # Fit the scaler
 scaler.fit(Xw_train)
 
+# Train the logistic regression model
+modelw = LogisticRegression(penalty='l2', solver='lbfgs', max_iter=1000)
+modelw.fit(Xw_train, yw_train)
+
 # Streamlit app
 st.title('Water Safety Prediction')
 
