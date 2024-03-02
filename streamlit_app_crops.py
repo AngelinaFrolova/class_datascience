@@ -18,7 +18,7 @@ def get_base64_of_image(file_path):
 background_image_base64 = get_base64_of_image("wheat_opaque.jpg")
 
 # Set up background image
-background_image = """
+background_image = f"""
 <style>
 [data-testid="stAppViewContainer"] > .main {
     background-image: url("data:image/jpeg;base64,{background_image_base64}");
