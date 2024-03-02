@@ -4,6 +4,7 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
+import base64
 
 # Load data
 url = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Machine-Learning/main/data/yield_df.csv'
@@ -14,13 +15,13 @@ def get_base64_of_image(file_path):
         return base64.b64encode(img_file.read()).decode('utf-8')
 
 # Convert your local image
-background_image_base64 = get_base64_of_image("path/to/your/local/image.jpg")
+background_image_base64 = get_base64_of_image("wheat_opaque.jpg")
 
 # Set up background image
 background_image = """
 <style>
 [data-testid="stAppViewContainer"] > .main {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg");
+    background-image: url("data:image/jpeg;base64,{background_image_base64}");
     background-size: cover;
     background-position: center;  
     background-repeat: no-repeat;
