@@ -9,6 +9,13 @@ from sklearn.model_selection import train_test_split
 url = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Machine-Learning/main/data/yield_df.csv'
 df_yield = pd.read_csv(url)
 
+def get_base64_of_image(file_path):
+    with open(file_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode('utf-8')
+
+# Convert your local image
+background_image_base64 = get_base64_of_image("path/to/your/local/image.jpg")
+
 # Set up background image
 background_image = """
 <style>
@@ -22,23 +29,23 @@ background_image = """
     height: 100%;
 }
 
-/* Adding text shadow for better readability */
-.css-1wrcr25, .st-bx, .st-bw, .st-cg, .st-cx, .st-cy, .st-dd, .st-de {
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value for overlay opacity */
+    z-index: 1;
 }
 
-/* Ensuring input widgets have a solid background */
-.stTextInput>div>div>input, .stSelectbox>div>div>select {
-    background-color: white;
-    opacity: 1; /* You might adjust this to make it slightly translucent */
-}
-
-/* Adjusting sidebar background for better contrast */
-[data-testid="stSidebar"] > div:first-child {
-    background-color: rgba(255,255,255,0.8); /* Adjust opacity as needed */
+.content-container {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    border-radius: 10px;
 }
 </style>
-
 """
 
 st.markdown(background_image, unsafe_allow_html=True)
