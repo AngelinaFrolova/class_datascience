@@ -57,7 +57,7 @@ user_input_scaled = scaler.transform(user_input)
 prediction = model.predict(user_input_scaled)
 
 st.subheader('Prediction:')
-st.write('Predicted Yield:', prediction[0])
+st.write('Predicted Yield:', round(prediction[0], 1), 'tones/ha')
 
 # Evaluate model
 predictions_test = model.predict(X_test)
