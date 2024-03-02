@@ -13,10 +13,12 @@ df_yield = pd.read_csv(url)
 st.markdown(
     """
     <style>
-    .reportview-container {
-        background: url("https://example.com/rye_background_image.jpg") no-repeat center center;
-        background-size: cover;
-    }
+        .stApp {
+            background-image: url('https://images.app.goo.gl/yCAjERzapjUTEZqX7');
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency here */
+        }
     </style>
     """,
     unsafe_allow_html=True
