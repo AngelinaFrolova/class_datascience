@@ -15,7 +15,7 @@ def get_base64_of_image(file_path):
         return base64.b64encode(img_file.read()).decode('utf-8')
 
 # Convert your local image
-background_image_base64 = get_base64_of_image("wheat_opaque.jpg")
+background_image_base64 = get_base64_of_image("class_datascience/wheat_opaque.jpg")
 
 # Set up background image
 background_image = """
