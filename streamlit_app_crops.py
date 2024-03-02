@@ -15,8 +15,8 @@ st.markdown(
     """
     <style>
     [data-testid="stAppViewContainer"] > .main{
-        background-image: url('wheat.jpg');
-        background-size: cover;
+        background-image: 'wheat.jpg';
+        background-size: 100vw 100vh;
         background-attachment: fixed;
         background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency here */
     }
