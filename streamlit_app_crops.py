@@ -18,7 +18,12 @@ background_image = """
     background-size: 100vw 100vh;
     background-position: center;  
     background-repeat: no-repeat;
-    opacity: 0.2;
+    
+}
+.content-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value for content container opacity */
+    padding: 20px;
+    border-radius: 10px;
 }
 </style>
 """
