@@ -14,7 +14,7 @@ df_yield = pd.read_csv(url)
 background_image = """
 <style>
 [data-testid="stAppViewContainer"] > .main {
-    
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg");
     background-size: 100vw 100vh;
     background-position: center;  
     background-repeat: no-repeat;
@@ -22,11 +22,11 @@ background_image = """
     
 }
 .content-container {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg");
+    
     background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value for content container opacity */
     padding: 20px;
     border-radius: 10px;
-    opacity = 0.35;
+    
 }
 </style>
 """
