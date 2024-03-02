@@ -10,15 +10,16 @@ url = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Mach
 df_yield = pd.read_csv(url)
 
 # Set up background image
+
 st.markdown(
     """
     <style>
-        .stApp {
-            background-image: url('wheat.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency here */
-        }
+    [data-testid="stAppViewContainer"] > .main{
+        background-image: url('wheat.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency here */
+    }
     </style>
     """,
     unsafe_allow_html=True
