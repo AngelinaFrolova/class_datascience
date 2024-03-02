@@ -14,7 +14,7 @@ df_yield = pd.read_csv(url)
 background_image = """
 <style>
 [data-testid="stAppViewContainer"] > .main {
-    background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
+    background-image: url("https://images.app.goo.gl/anppeZ3wUTSsmH5P6");
     background-size: 100vw 100vh;
     background-position: center;  
     background-repeat: no-repeat;
@@ -59,20 +59,17 @@ user_input = [[le.transform([item])[0], avg_rainfall, pesticides, avg_temp]]
 user_input_scaled = scaler.transform(user_input)
 prediction = model.predict(user_input_scaled)
 
-col1, col2 = st.columns([0.7, 0.3])
-with col1:
-    st.subheader('Prediction:')
-    st.write('Predicted Yield:', round(prediction[0], 1), 'tones/ha')
-    
-    # Evaluate model
-    predictions_test = model.predict(X_test)
-    mae = mean_absolute_error(y_test, predictions_test)
-    mse = mean_squared_error(y_test, predictions_test)
-    r2 = r2_score(y_test, predictions_test)
-    
-    st.subheader('Model Evaluation:')
-    st.write(f"MAE test set: {mae:.2f}")
-    st.write(f"MSE test set: {mse:.2f}")
-    st.write(f"R\u00b2 test set: {r2:.2f}")
-with col2:
-    st.image('wheat.jpg')
+st.subheader('Prediction:')
+st.write('Predicted Yield:', round(prediction[0], 1), 'tones/ha')
+
+# Evaluate model
+predictions_test = model.predict(X_test)
+mae = mean_absolute_error(y_test, predictions_test)
+mse = mean_squared_error(y_test, predictions_test)
+r2 = r2_score(y_test, predictions_test)
+
+st.subheader('Model Evaluation:')
+st.write(f"MAE test set: {mae:.2f}")
+st.write(f"MSE test set: {mse:.2f}")
+st.write(f"R\u00b2 test set: {r2:.2f}")
+
