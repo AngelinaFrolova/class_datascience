@@ -4,4 +4,4 @@ plotly
 matplotlib
 yfinance
 scikit-learn
-
+base64
