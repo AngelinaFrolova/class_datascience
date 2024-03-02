@@ -23,7 +23,7 @@ background_image = """
 }
 .content-container {
     
-    background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value for content container opacity */
+    background-color: rgba(255, 255, 255, 1); /* Adjust the last value for content container opacity */
     padding: 20px;
     border-radius: 10px;
     
