@@ -13,25 +13,31 @@ df_yield = pd.read_csv(url)
 
 background_image = """
 <style>
-[data-testid="stAppViewContainer"]::before {
-    content: "";
-    background: url("https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg");
+[data-testid="stAppViewContainer"] > .main {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/a/a3/Vehn%C3%A4pelto_6.jpg");
     background-size: cover;
+    background-position: center;  
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
-    opacity: 0.8; /* Adjust the opacity as needed (0.0 to 1.0) */
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value for overlay opacity */
+    z-index: 1;
 }
 
 .content-container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     padding: 20px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* Adjust the last value for content container opacity */
 }
 </style>
 """
