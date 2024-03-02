@@ -15,7 +15,7 @@ background_image = """
 <style>
 [data-testid="stAppViewContainer"] > .main {
     background-image: url("https://images.unsplash.com/photo-1542281286-9e0a16bb7366");
-    background-size: 100vw 100vh;  # This sets the size to cover 100% of the viewport width and height
+    background-size: 100vw 100vh;
     background-position: center;  
     background-repeat: no-repeat;
 }
@@ -23,6 +23,7 @@ background_image = """
 """
 
 st.markdown(background_image, unsafe_allow_html=True)
+
 
 st.title('Crop Yield Prediction')
 
