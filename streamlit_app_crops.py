@@ -20,7 +20,7 @@ background_image_base64 = get_base64_of_image("wheat_opaque.jpg")
 # Set up background image
 background_image = f"""
 <style>
-[data-testid="stAppViewContainer"] > .main {
+[data-testid="stAppViewContainer"] > .main {{
     background-image: url("data:image/jpeg;base64,{background_image_base64}");
     background-size: cover;
     background-position: center;  
@@ -28,9 +28,7 @@ background_image = f"""
     position: absolute;
     width: 100%;
     height: 100%;
-}
-
-
+}}
 </style>
 """
 
