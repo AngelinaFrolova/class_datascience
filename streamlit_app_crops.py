@@ -24,6 +24,7 @@ background_image = """
     background-color: rgba(255, 255, 255, 0.35); /* Adjust the last value for content container opacity */
     padding: 20px;
     border-radius: 10px;
+    opacity = 0.35;
 }
 </style>
 """
