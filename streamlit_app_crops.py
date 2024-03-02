@@ -10,7 +10,6 @@ url = 'https://raw.githubusercontent.com/michalis0/MGT-502-Data-Science-and-Mach
 df_yield = pd.read_csv(url)
 
 # Set up background image
-
 background_image = """
 <style>
 [data-testid="stAppViewContainer"] > .main {
@@ -29,7 +28,7 @@ background_image = """
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); /* Adjust the last value for overlay opacity */
+    background-color: rgba(0, 0, 0, 0.5); /* Make background dimmer */
     z-index: 1;
 }
 
@@ -40,6 +39,10 @@ background_image = """
     border-radius: 10px;
 }
 </style>
+"""
+
+st.markdown(background_image, unsafe_allow_html=True)
+
 """
 
 st.markdown(background_image, unsafe_allow_html=True)
