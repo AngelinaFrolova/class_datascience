@@ -18,7 +18,7 @@ background_image = """
     background-size: 100vw 100vh;
     background-position: center;  
     background-repeat: no-repeat;
-    opacity: 0.8;
+    opacity: 0.2;
 }
 </style>
 """
