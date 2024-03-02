@@ -25,9 +25,6 @@ background_image = f"""
     background-size: cover;
     background-position: center;  
     background-repeat: no-repeat;
-    position: absolute;
-    width: 100%;
-    height: 100%;
 }}
 </style>
 """
