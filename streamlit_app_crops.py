@@ -14,7 +14,7 @@ st.markdown(
     """
     <style>
         .stApp {
-            background-image: url('https://images.app.goo.gl/yCAjERzapjUTEZqX7');
+            background-image: url('wheat.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-color: rgba(255, 255, 255, 0.5); /* Adjust transparency here */
