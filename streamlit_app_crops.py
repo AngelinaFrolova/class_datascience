@@ -22,23 +22,23 @@ background_image = """
     height: 100%;
 }
 
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Make background dimmer */
-    z-index: 1;
+/* Adding text shadow for better readability */
+.css-1wrcr25, .st-bx, .st-bw, .st-cg, .st-cx, .st-cy, .st-dd, .st-de {
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
 }
 
-.content-container {
-    position: relative;
-    z-index: 2;
-    padding: 20px;
-    border-radius: 10px;
+/* Ensuring input widgets have a solid background */
+.stTextInput>div>div>input, .stSelectbox>div>div>select {
+    background-color: white;
+    opacity: 1; /* You might adjust this to make it slightly translucent */
+}
+
+/* Adjusting sidebar background for better contrast */
+[data-testid="stSidebar"] > div:first-child {
+    background-color: rgba(255,255,255,0.8); /* Adjust opacity as needed */
 }
 </style>
+
 """
 
 st.markdown(background_image, unsafe_allow_html=True)
